@@ -1,0 +1,23 @@
+<template>
+  <div>
+    <my-items :group-id="parentGroupId" />
+    <button
+      class="btn btn-primary"
+      @click="changeGroupId">
+      test
+    </button>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue"
+
+export default class Sample extends Vue {
+  parentGroupId: number = 123
+
+  changeGroupId(): void{
+    console.log("呼ばれたよ")
+    this.parentGroupId = 234
+  }
+}
+</script>
