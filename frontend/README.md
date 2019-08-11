@@ -5,6 +5,32 @@
 npm install
 ```
 
+When you use Visual Studio Code, add `settings.json`.
+```
+{
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        {
+          "language": "javascript",
+          "autoFix": true
+        },
+        {
+          "language": "typescript",
+          "autoFix": true
+        },
+        {
+          "language": "vue",
+          "autoFix": true
+        }
+      ],
+    "vetur.format.defaultFormatter.js": "none"
+}
+```
+
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve

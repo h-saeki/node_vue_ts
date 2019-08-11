@@ -12,6 +12,7 @@ module.exports = {
     'plugin:vue/recommended',
     //'prettier/@typescript-eslint',
     //'plugin:prettier/recommended',
+    "eslint:recommended",
   ],
   rules: {
     // note you must disable the base rule as it can report incorrect errors
