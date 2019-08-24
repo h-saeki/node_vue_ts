@@ -29,11 +29,6 @@ export default new Router({
       path: "/Sample",
       name: "Sample",
       component: Sample,
-    },
-    {
-      path: "/items",
-      name: "Items",
-      component: Items,
-    },
+    }
   ],
 })

@@ -10,14 +10,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { Component, Vue } from "vue-property-decorator";
+import MyItems from "@/components/MyItems.vue";
 
+@Component({
+  components: {
+    MyItems
+  }
+})
 export default class Sample extends Vue {
-  parentGroupId: number = 123
+  parentGroupId: number = 123;
 
-  changeGroupId(): void{
-    console.log("呼ばれたよ")
-    this.parentGroupId = 234
+  changeGroupId(): void {
+    console.log("呼ばれたよ");
+    this.parentGroupId = 234;
   }
 }
 </script>

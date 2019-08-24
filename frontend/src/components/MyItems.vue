@@ -16,20 +16,21 @@
     </table>
     <div>親から渡されたprops{{ groupId }}</div>
     <div>{{ errorMessage }}</div>
+    <button @click="onClick">なにか値を変更</button>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { Component, Prop, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import { Item } from "../models/Item";
 import axios from "axios";
 
 @Component({
   name: "my-items"
 })
-export default class Items extends Vue {
-  @Prop() groupId!: number;
+export default class MyItems extends Vue {
+  @Prop({ default: 0 })
+  groupId!: number;
   list: Item[] = [];
   errorMessage: string = "";
 
@@ -53,11 +54,8 @@ export default class Items extends Vue {
         this.list.push(new Item(2, "うまい棒"));
       });
   }
-
-  /** watch */
-  @Watch("groupId")
-  onValueChange(newValue: number, oldValue: number): void {
-    console.log(`watch: ${newValue}, ${oldValue}`);
+  onClick(): void {
+    this.list[0].name = this.list[0].name + "r";
   }
 }
 </script>
