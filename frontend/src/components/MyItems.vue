@@ -16,7 +16,7 @@
     </table>
     <div>親から渡されたprops{{ groupId }}</div>
     <div>{{ errorMessage }}</div>
-    <button @click="onClick">なにか値を変更</button>
+    <button class="btn btn-primary" @click="onClick">なにか値を変更</button>
   </div>
 </template>
 
