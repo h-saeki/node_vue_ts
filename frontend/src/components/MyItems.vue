@@ -21,14 +21,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import { Item } from "../models/Item";
 import axios from "axios";
+import ISample from "@/events/ISample.ts";
 
 @Component({
   name: "my-items"
 })
-export default class MyItems extends Vue {
+export default class MyItems extends Vue implements ISample {
   @Prop({ default: 0 })
   groupId!: number;
   list: Item[] = [];
@@ -54,8 +55,14 @@ export default class MyItems extends Vue {
         this.list.push(new Item(2, "うまい棒"));
       });
   }
+  @Emit("on-changed")
+  onChange(v: string): string {
+    return v;
+  }
+
   onClick(): void {
     this.list[0].name = this.list[0].name + "r";
+    this.onChange(this.list[0].name);
   }
 }
 </script>
